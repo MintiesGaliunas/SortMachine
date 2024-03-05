@@ -7,10 +7,10 @@ namespace SortMachine.Controllers;
 
 public class SortController : ControllerBase
 {
-
     private readonly ILogger<SortController> _logger;
     private readonly ISortAlgorithm _sortAlgorithm;
     private readonly IDataManager _fileDataManager;
+
     public SortController(ISortAlgorithm sortAlgorithm, IDataManager fileDataManager, ILogger<SortController> logger)
     {
         _sortAlgorithm = sortAlgorithm;
@@ -36,7 +36,8 @@ public class SortController : ControllerBase
             _fileDataManager.WriteData(result);
             return Ok(result);
         }
-        catch (ArgumentException ex) {
+        catch (ArgumentException ex)
+        {
             _logger.LogError(ex.Message + "Provided input: " + input);
             return BadRequest("Please enter a queue of number separated by spaces as input");
         }
@@ -48,5 +49,4 @@ public class SortController : ControllerBase
     {
         return Ok(_fileDataManager.ReadData());
     }
-
 }

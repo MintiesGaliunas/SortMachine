@@ -13,10 +13,10 @@ public class SortAlgorithmTests
     {
         // Arrange
         var bubbleSort = new BubbleSort();
-        
+
         // Act
         bubbleSort.Sort(disorderedList);
-        
+
         // Arrange
         Assert.Equal(orderedList, disorderedList);
     }

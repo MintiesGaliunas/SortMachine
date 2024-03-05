@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
 using SortMachine.Controllers;
 using SortMachine.Sorts;
 using SortMachine.Storage;
+
 namespace TestSortMachine.Controllers;
 
 public class SortControllerTests
@@ -13,7 +13,6 @@ public class SortControllerTests
     private readonly Mock<ISortAlgorithm> _sortAlgorithmMock = new();
     private readonly Mock<IDataManager> _dataManagerMock = new();
     private readonly Mock<ILogger<SortController>> _loggerMock = new();
-
 
     public SortControllerTests()
     {
@@ -40,7 +39,7 @@ public class SortControllerTests
         // Arrange
         _sortAlgorithmMock.Setup(x => x.Sort(new int[] { 1, 2, 3 }));
         _dataManagerMock.Setup(x => x.WriteData("1 2 3"));
-        
+
         // Act
         var result = _sortController.SortList("1 2 3");
 
@@ -48,7 +47,6 @@ public class SortControllerTests
         _sortAlgorithmMock.Verify(x => x.Sort(new int[] { 1, 2, 3 }), Times.Once);
         _dataManagerMock.Verify(x => x.WriteData("1 2 3"), Times.Once);
         Assert.True(result is OkObjectResult);
-
     }
 
     [Fact]
@@ -62,7 +60,6 @@ public class SortControllerTests
         Assert.True(result is BadRequestObjectResult);
     }
 
-
     [Fact]
     public void SortListWithInvalidInput()
     {
@@ -73,5 +70,4 @@ public class SortControllerTests
         // Assert
         Assert.True(result is BadRequestObjectResult);
     }
-
 }

@@ -1,8 +1,6 @@
-﻿using SortMachine.Models;
+﻿namespace SortMachine.Storage;
 
-namespace SortMachine.Storage;
-
-public class FileDataManager: IDataManager
+public class FileDataManager : IDataManager
 {
     private readonly string _fileName;
 

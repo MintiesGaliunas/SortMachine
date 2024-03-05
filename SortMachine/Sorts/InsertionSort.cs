@@ -15,7 +15,6 @@ public class InsertionSort : ISortAlgorithm
                     numbers[rightNumberindex] = numbers[j];
                     numbers[j] = save;
                     rightNumberindex = j;
-                    
                 }
             }
         }

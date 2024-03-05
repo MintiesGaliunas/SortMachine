@@ -9,7 +9,6 @@ namespace PerformanceTest;
 [RankColumn]
 public class SortAlgorithmTests
 {
-
     private ISortAlgorithm? _sortAlgorithm;
     private int[] _randomItems = [];
 
@@ -19,7 +18,6 @@ public class SortAlgorithmTests
         var random = new Random(500);
         _randomItems = Enumerable.Range(0, 1000).Select(i => random.Next()).ToArray();
     }
-
 
     [Benchmark]
     public void BubbleSortTest()
