@@ -1,0 +1,6 @@
+@SortMachine_HostAddress = http://localhost:5251
+
+GET {{SortMachine_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
