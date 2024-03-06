@@ -29,10 +29,10 @@ public class SortAlgorithmTests
     public void InsertionSortTest(int[] disorderedList, int[] orderedList)
     {
         // Arrange
-        var bubbleSort = new InsertionSort();
+        var insertionSort = new InsertionSort();
 
         // Act
-        bubbleSort.Sort(disorderedList);
+        insertionSort.Sort(disorderedList);
 
         // Assert
         Assert.Equal(orderedList, disorderedList);
@@ -46,10 +46,44 @@ public class SortAlgorithmTests
     public void ReverseBubbleSortTest(int[] disorderedList, int[] orderedList)
     {
         // Arrange
-        var bubbleSort = new ReverseBubbleSort();
+        var reverseBubbleSort = new ReverseBubbleSort();
 
         // Act
-        bubbleSort.Sort(disorderedList);
+        reverseBubbleSort.Sort(disorderedList);
+
+        // Assert
+        Assert.Equal(orderedList, disorderedList);
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1 }, new int[] { 1 })]
+    [InlineData(new int[] { 2, 1 }, new int[] { 1, 2 })]
+    [InlineData(new int[] { 2, 1, 3 }, new int[] { 1, 2, 3 })]
+    [InlineData(new int[] { 4, 1, 3, 2 }, new int[] { 1, 2, 3, 4 })]
+    public void SelectonSortTest(int[] disorderedList, int[] orderedList)
+    {
+        // Arrange
+        var selectionSort = new SelectionSort();
+
+        // Act
+        selectionSort.Sort(disorderedList);
+
+        // Assert
+        Assert.Equal(orderedList, disorderedList);
+    }
+
+    [Theory]
+    [InlineData(new int[] { 1 }, new int[] { 1 })]
+    [InlineData(new int[] { 2, 1 }, new int[] { 1, 2 })]
+    [InlineData(new int[] { 2, 1, 3 }, new int[] { 1, 2, 3 })]
+    [InlineData(new int[] { 4, 1, 3, 2 }, new int[] { 1, 2, 3, 4 })]
+    public void HeapSortTest(int[] disorderedList, int[] orderedList)
+    {
+        // Arrange
+        var heapSort = new HeapSort();
+
+        // Act
+        heapSort.Sort(disorderedList);
 
         // Assert
         Assert.Equal(orderedList, disorderedList);

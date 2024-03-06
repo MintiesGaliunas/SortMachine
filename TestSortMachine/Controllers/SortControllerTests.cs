@@ -37,14 +37,15 @@ public class SortControllerTests
     public void SortListHappyPathTest()
     {
         // Arrange
-        _sortAlgorithmMock.Setup(x => x.Sort(new int[] { 1, 2, 3 }));
+        int[] numbers = [1, 2, 3];
+        _sortAlgorithmMock.Setup(x => x.Sort(numbers));
         _dataManagerMock.Setup(x => x.WriteData("1 2 3"));
 
         // Act
         var result = _sortController.SortList("1 2 3");
 
         // Assert
-        _sortAlgorithmMock.Verify(x => x.Sort(new int[] { 1, 2, 3 }), Times.Once);
+        _sortAlgorithmMock.Verify(x => x.Sort(numbers), Times.Once);
         _dataManagerMock.Verify(x => x.WriteData("1 2 3"), Times.Once);
         Assert.True(result is OkObjectResult);
     }

@@ -5,7 +5,7 @@ using SortMachine.Sorts;
 namespace PerformanceTest;
 
 [MemoryDiagnoser]
-[Orderer(SummaryOrderPolicy.SlowestToFastest)]
+[Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
 public class SortAlgorithmTests
 {
@@ -37,6 +37,20 @@ public class SortAlgorithmTests
     public void InsertionSortTest()
     {
         _sortAlgorithm = new InsertionSort();
+        _sortAlgorithm.Sort(_randomItems);
+    }
+
+    [Benchmark]
+    public void SelectionSortTest()
+    {
+        _sortAlgorithm = new SelectionSort();
+        _sortAlgorithm.Sort(_randomItems);
+    }
+
+    [Benchmark]
+    public void HeapSortTest()
+    {
+        _sortAlgorithm = new HeapSort();
         _sortAlgorithm.Sort(_randomItems);
     }
 }

@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<ISortAlgorithm, ReverseBubbleSort>();
+builder.Services.AddTransient<ISortAlgorithm, HeapSort>();
 builder.Services.AddTransient<IDataManager, FileDataManager>();
 
 var app = builder.Build();

@@ -11,9 +11,7 @@ public class InsertionSort : ISortAlgorithm
             {
                 if (numbers[j] > numbers[rightNumberindex])
                 {
-                    int save = numbers[rightNumberindex];
-                    numbers[rightNumberindex] = numbers[j];
-                    numbers[j] = save;
+                    (numbers[rightNumberindex], numbers[j]) = (numbers[j], numbers[rightNumberindex]);
                     rightNumberindex = j;
                 }
             }

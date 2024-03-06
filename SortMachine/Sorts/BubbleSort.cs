@@ -2,17 +2,15 @@
 
 public class BubbleSort : ISortAlgorithm
 {
-    public void Sort(int[] nums)
+    public void Sort(int[] numbers)
     {
-        for (int i = nums.Length - 1; i > 0; i--)
+        for (int i = numbers.Length - 1; i > 0; i--)
         {
-            for (int j = 0; j < nums.Length - 1; j++)
+            for (int j = 0; j < numbers.Length - 1; j++)
             {
-                if (nums[j] > nums[j + 1])
+                if (numbers[j] > numbers[j + 1])
                 {
-                    var save = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = save;
+                    (numbers[j], numbers[j + 1]) = (numbers[j + 1], numbers[j]);
                 }
             }
         }
