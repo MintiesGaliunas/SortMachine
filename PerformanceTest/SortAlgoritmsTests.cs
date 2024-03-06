@@ -15,7 +15,7 @@ public class SortAlgorithmTests
     [GlobalSetup]
     public void Setup()
     {
-        var random = new Random(500);
+        var random = new Random(1000);
         _randomItems = Enumerable.Range(0, 1000).Select(i => random.Next()).ToArray();
     }
 
