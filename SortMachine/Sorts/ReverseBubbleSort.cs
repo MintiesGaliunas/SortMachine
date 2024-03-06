@@ -10,9 +10,7 @@ public class ReverseBubbleSort : ISortAlgorithm
             {
                 if (numbers[j] < numbers[i])
                 {
-                    var save = numbers[i];
-                    numbers[i] = numbers[j];
-                    numbers[j] = save;
+                    (numbers[i], numbers[j]) = (numbers[j], numbers[i]);
                 }
             }
         }

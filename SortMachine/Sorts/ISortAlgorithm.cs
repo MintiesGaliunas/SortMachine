@@ -2,5 +2,5 @@
 
 public interface ISortAlgorithm
 {
-    public void Sort(int[] num);
+    public void Sort(int[] numbers);
 }
